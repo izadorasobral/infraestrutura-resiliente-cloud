@@ -23,7 +23,8 @@ jobs:
           pip install -r backend/src/requirements.txt
 
       - name: Build Docker image
-        run: docker build -t ${{ secrets.DOCKER_HUB_USERNAME }}/myapp:latest .
+        run: docker build -t ${{ secrets.DOCKER_HUB_USERNAME }}/myapp:latest backend/
+    
 
       - name: Log in to Docker Hub
         run: echo ${{ secrets.DOCKER_HUB_PASSWORD }} | docker login -u ${{ secrets.DOCKER_HUB_USERNAME }} --password-stdin
